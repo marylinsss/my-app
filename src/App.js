@@ -3,24 +3,16 @@ import './App.css';
 import {BrowserRouter, NavLink, Route} from "react-router-dom";
 
 const Profile = ()=>{
-    return (
-        <h1>Это страница с профилем</h1>
-    )
+    return <h1>Это страница с профилем</h1>
 }
 const Message = ()=>{
-    return (
-        <h1>Это страница с сообщениями</h1>
-    )
+    return <h1>Это страница с сообщениями</h1>
 }
 const Settings = ()=>{
-    return (
-        <h1>Это страница с настройками</h1>
-    )
+    return <h1>Это страница с настройками</h1>
 }
 const Friends = ()=>{
-    return (
-        <h1>Это страница с друзьями</h1>
-    )
+    return  <h1>Это страница с друзьями</h1>
 }
 
 const Menu = ()=>{
