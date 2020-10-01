@@ -1,19 +1,17 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter, NavLink, Route} from "react-router-dom";
+import Profile from "./components/Profile";
+import Friends from "./components/Friends";
 
-const Profile = ()=>{
-    return <h1>Это страница с профилем</h1>
-}
+
 const Message = ()=>{
-    return <h1>Это страница с сообщениями</h1>
+    return <h1>Страница с сообщениями</h1>
 }
 const Settings = ()=>{
-    return <h1>Это страница с настройками</h1>
+    return <h1>Страница с настройками</h1>
 }
-const Friends = ()=>{
-    return  <h1>Это страница с друзьями</h1>
-}
+
 
 const Menu = ()=>{
     return <div className="nav flex-column nav-pills" aria-orientation="vertical">
@@ -23,26 +21,24 @@ const Menu = ()=>{
         <NavLink className="nav-link" to="friends">Мои друзья</NavLink>
     </div>
 }
-function App() {
-  return (
-      <div className="container-fluid">
-          <BrowserRouter>
-            <div className="row">
-              <div className="col-sm-3">
-                <Menu/>
-              </div>
-              <div className="col-sm-9">
-
-                      <Route path="/profile" component={Profile}/>
-                      <Route path="/message" component={Message}/>
-                      <Route path="/settings" component={Settings}/>
-                      <Route path="/friends" component={Friends}/>
-
-              </div>
-            </div>
-          </BrowserRouter>
-      </div>
-  );
+function App(props) {
+    return (
+        <div className="container-fluid">
+            <BrowserRouter>
+                <div className="row my-5">
+                    <div className="col-sm-3">
+                        <Menu/>
+                    </div>
+                    <div className="col-sm-9">
+                        <Route path="/profile" render={()=><Profile function={props.functions.key_getUser}/>}/>
+                        <Route path="/message" component={Message}/>
+                        <Route path="/settings" component={Settings}/>
+                        <Route path="/friends" render={()=><Friends function={props.functions.key_getUsers}/>}/>
+                    </div>
+                </div>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;
